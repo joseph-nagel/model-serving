@@ -1,0 +1,9 @@
+numpy
+torch
+torchvision
+Flask
+Pillow
+requests
+matplotlib
+notebook
+

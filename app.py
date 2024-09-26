@@ -1,9 +1,9 @@
 '''
-Simple inference server (Flask).
+Simple Flask inference server.
 
 Summary
 -------
-The inference can be launched through:
+The inference server can be launched through:
 python app.py
 
 A request can then send by:
@@ -37,7 +37,7 @@ def predict():
         # image = Image.open(BytesIO(image.read()))
         image = Image.open(image)
 
-        # predict
+        # run model
         result = model(image)[0]
 
         return jsonify(result)

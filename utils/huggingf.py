@@ -5,12 +5,23 @@ from transformers import pipeline
 
 # TODO: enable GPU processing
 class HFResNet18():
-    '''ResNet-18 Hugging Face pipeline wrapper.'''
+    '''
+    ResNet-18 Hugging Face pipeline wrapper.
 
-    def __init__(self, model_name='microsoft/resnet-18'):
+    Summary
+    -------
+    This is a simple wrapper for a pretrained ResNet-18 model.
+    It just facilitates to load the model and to predict the top class.
+
+    '''
+
+    def __init__(self):
 
         # load pipeline (preprocessor, model and postprocessor)
-        self.pipe = pipeline('image-classification', model=model_name)
+        self.pipe = pipeline(
+            task='image-classification',
+            model='microsoft/resnet-18'
+        )
 
     def __call__(self, images):
         '''Predict.'''

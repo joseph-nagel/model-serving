@@ -43,7 +43,15 @@ transform = {
 
 # TODO: enable GPU processing
 class TVResNet18():
-    '''ResNet-18 torchvision model wrapper.'''
+    '''
+    ResNet-18 torchvision model wrapper.
+
+    Summary
+    -------
+    This class implements a standardized interface to load
+    and use a pretrained ResNet-18 model from torchvision.
+
+    '''
 
     def __init__(self):
 

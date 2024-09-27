@@ -1,6 +1,7 @@
 numpy
 torch
 torchvision
+transformers
 Flask
 Pillow
 requests

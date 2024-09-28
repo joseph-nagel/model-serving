@@ -3,10 +3,13 @@ Simple Flask inference server.
 
 Summary
 -------
-The inference server can be launched through:
+A very simple inference server is implemented with Flask.
+It allows for deploying ML models as a web application.
+
+The inference server is launched through:
 python app.py
 
-A request can then send by:
+A request can then be sent by:
 curl -X POST http://localhost:5000/predict -F image=@test.jpg
 
 '''

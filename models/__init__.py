@@ -1,4 +1,4 @@
-'''Some utilities.'''
+'''Pretrained models.'''
 
 from . import huggingf, torchv
 

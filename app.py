@@ -19,7 +19,7 @@ curl -X POST http://localhost:5000/predict -F image=@test.jpg
 from PIL import Image
 from flask import Flask, jsonify, request
 
-from utils import TVResNet18
+from models import TVResNet18
 
 
 # initialize pretrained model

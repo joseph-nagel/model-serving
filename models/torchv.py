@@ -1,7 +1,10 @@
 '''torchvision models.'''
 
+from collections.abc import Sequence
+
 import torch
 from torchvision import transforms, models
+from PIL import Image
 
 
 RESIZE_SHAPE = (256, 256)
@@ -42,7 +45,7 @@ transform = {
 
 
 # TODO: enable GPU processing
-class TVResNet18():
+class TVResNet18:
     '''
     ResNet-18 torchvision model wrapper.
 
@@ -53,7 +56,7 @@ class TVResNet18():
 
     '''
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         self.weights = models.ResNet18_Weights.DEFAULT
 
@@ -64,22 +67,23 @@ class TVResNet18():
         # self.preprocessor = transform['resize_and_crop']
 
     @property
-    def class_names(self):
+    def class_names(self) -> list[str]:
         return self.weights.meta['categories']
 
-    def __call__(self, images):
+    def __call__(self, images: Image.Image | Sequence[Image.Image]) -> list[dict[str, str | float]]:
         '''Predict.'''
 
         # preprocess images
-        if not isinstance(images, (list, tuple)):
+        if not isinstance(images, Sequence):
             images = [images]
 
-        x = []
+        x_list = []
+
         for img in images:
             tensor = self.preprocessor(img) # (3, h, w)
-            x.append(tensor)
+            x_list.append(tensor)
 
-        x = torch.stack(x, dim=0) # (b, 3, h, w)
+        x = torch.stack(x_list, dim=0) # (b, 3, h, w)
 
         # run model
         with torch.no_grad():

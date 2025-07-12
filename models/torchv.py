@@ -80,19 +80,19 @@ class TVResNet18:
         x_list = []
 
         for img in images:
-            tensor = self.preprocessor(img) # (3, h, w)
+            tensor = self.preprocessor(img)  # (3, h, w)
             x_list.append(tensor)
 
-        x = torch.stack(x_list, dim=0) # (b, 3, h, w)
+        x = torch.stack(x_list, dim=0)  # (b, 3, h, w)
 
         # run model
         with torch.no_grad():
-            logits = self.model(x) # (b, 1000)
+            logits = self.model(x)  # (b, 1000)
 
         # postprocess prediction
-        probs = logits.softmax(dim=1) # (b, 1000)
+        probs = logits.softmax(dim=1)  # (b, 1000)
 
-        max_probs, max_ids = probs.max(dim=1) # (b,)
+        max_probs, max_ids = probs.max(dim=1)  # (b,)
 
         scores = max_probs.tolist()
         labels = [self.class_names[class_idx.item()] for class_idx in max_ids]

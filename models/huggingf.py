@@ -29,4 +29,3 @@ class HFResNet18:
     def __call__(self, images: Image.Image | Sequence[Image.Image]) -> list[list[dict[str, str | float]]]:
         '''Predict.'''
         return self.pipe(images, top_k=1)
-

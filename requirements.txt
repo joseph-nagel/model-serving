@@ -7,4 +7,3 @@ Pillow
 requests
 matplotlib
 notebook
-

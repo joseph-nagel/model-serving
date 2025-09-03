@@ -101,4 +101,3 @@ class TVResNet18:
         out = [{'label': label, 'score': score} for label, score in zip(labels, scores)]
 
         return out
-

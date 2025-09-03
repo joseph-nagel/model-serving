@@ -41,4 +41,3 @@ one may simply proceed as follows.
 The running container can be stopped with `sudo docker stop imgclassif`
 and restarted at any time through `sudo docker start imgclassif`.
 A request can be sent as before with an appropriate `curl` command.
-

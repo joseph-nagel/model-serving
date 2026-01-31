@@ -13,12 +13,12 @@ It can be easily requested to make model predictions for some given input data.
 The whole procedure just involves the following two steps.
 
 1.  Start a local inference server:
-    ```
+    ```bash
     python app.py
     ```
 
 2.  Send a POST request to the inference server:
-    ```
+    ```bash
     curl -X POST http://localhost:5000/predict -F image=@test.jpg
     ```
 
@@ -29,12 +29,12 @@ and starting the service through `sudo systemctl start docker` (on many Linux sy
 one may simply proceed as follows.
 
 1.  Build an image from the dockerfile:
-    ```
+    ```bash
     sudo docker build -t flask_image_classif .
     ```
 
 2.  Create and run a container from the image:
-    ```
+    ```bash
     sudo docker run --name imgclassif -d -p 5000:5000 flask_image_classif
     ```
 

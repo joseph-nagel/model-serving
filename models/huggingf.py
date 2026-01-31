@@ -18,7 +18,7 @@ class HFResNet18:
 
     '''
 
-    def __init__(self) -> None:
+    def __init__(self):
 
         # load pipeline (preprocessor, model and postprocessor)
         self.pipe = pipeline(

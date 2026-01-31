@@ -56,8 +56,7 @@ class TVResNet18:
 
     '''
 
-    def __init__(self) -> None:
-
+    def __init__(self):
         self.weights = models.ResNet18_Weights.DEFAULT
 
         self.model = models.resnet18(weights=self.weights)

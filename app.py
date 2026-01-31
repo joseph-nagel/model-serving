@@ -29,16 +29,15 @@ model = TVResNet18()
 # create Flask application
 app = Flask(__name__)
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
-
     if request.method == 'POST':
 
         # get image
         image = request.files['image']
-
-        # image = Image.open(BytesIO(image.read()))
         image = Image.open(image)
+        # image = Image.open(BytesIO(image.read()))
 
         # run model
         result = model(image)[0]
